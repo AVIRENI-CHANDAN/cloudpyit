@@ -1,0 +1,36 @@
+section.CounterSection {
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    div.CounterSectionContainer {
+        flex: 0 1 1270px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        min-height: 200px;
+
+        div.CountContainer {
+            flex: 1 1 150px;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+
+            div.Count {
+                color: rgb(80, 190, 80);
+                font-size: 48px;
+                font-weight: bold;
+            }
+
+            div.CounterCategory {
+                font-size: 16px;
+                color: gray;
+            }
+        }
+    }
+}

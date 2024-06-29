@@ -1,0 +1,91 @@
+$black-color: black;
+$white-color: rgba(255, 255, 255, 0.8);
+$dark-overlay-color: rgba(0, 0, 0, 0.7);
+$header-font-size: 2rem;
+$key-point-icon: "✔";
+$key-point-icon-color: green;
+$gap-large: 36px;
+$gap-medium: 18px;
+$gap-small: 8px;
+$padding: 0 24px;
+$section-padding: 4em 0;
+
+section.IntroSection {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: $padding;
+
+    div.SectionWrapper {
+        color: $black-color;
+        flex: 0 1 1270px;
+        display: flex;
+        flex-flow: row wrap-reverse;
+        gap: $gap-large;
+        align-items: center;
+        padding: $section-padding;
+        z-index: 5;
+
+        div {
+            flex: 1 1 auto;
+        }
+
+        div.IntroContentWrapper {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: $gap-medium;
+
+            div.Header {
+                flex: 0;
+                font-weight: bold;
+                font-size: $header-font-size;
+            }
+
+            div.WelcomeMessage {
+                font-style: italic;
+                text-align: justify;
+            }
+
+            ul.KeyPoints {
+                position: relative;
+                display: flex;
+                flex-flow: column nowrap;
+                gap: $gap-small;
+                padding-left: 18px;
+
+                li.KeyPoint {
+                    list-style-type: $key-point-icon;
+                    padding-left: 12px;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+    div.DarkOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: $dark-overlay-color;
+        z-index: 1;
+    }
+
+    div.LightOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: $white-color;
+        z-index: 1;
+    }
+}

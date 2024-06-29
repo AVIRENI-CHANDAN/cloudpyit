@@ -1,0 +1,199 @@
+$footer-background-color: rgb(245, 245, 245);
+$copyright-background-color: rgb(235, 235, 235);
+$padding: 2em 12px;
+$font-size: 14px;
+$gap: 12px;
+$border-color: red;
+$primary-color: rgb(80, 190, 80);
+
+footer.Footer {
+    background-color: $footer-background-color;
+    padding: $padding;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    div.FooterBox {
+        flex: 0 1 1270px;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: $gap;
+
+        div.ContainerBox {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: stretch;
+            align-content: stretch;
+
+            div.Container {
+                flex: 1 1 250px;
+                display: flex;
+                flex-flow: row wrap;
+                align-items: stretch;
+                align-content: stretch;
+                justify-content: stretch;
+
+                div.AddressBox {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    font-size: $font-size;
+                    line-height: 1.5em;
+                    gap: $gap;
+
+                    div.ContainerHeader {
+                        img {
+                            height: 40px;
+                        }
+                    }
+
+                    div.Address {
+                        display: flex;
+                        flex-flow: column nowrap;
+                    }
+
+                    div.Contact {
+                        display: flex;
+                        flex-flow: column nowrap;
+
+                        div.Phone,
+                        div.Email {
+                            display: inline-flex;
+                            flex-flow: row nowrap;
+                            gap: $gap;
+
+                            div.Header {
+                                font-weight: bold;
+
+                                &::after {
+                                    content: ':';
+                                }
+                            }
+                        }
+                    }
+                }
+
+                div.LinksBox {
+                    flex: 1 1 auto;
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-items: stretch;
+                    align-content: stretch;
+                    justify-content: space-between;
+                    gap: $gap;
+
+                    div.LinksContainer {
+                        flex: 1 1 140px;
+                        display: flex;
+                        flex-flow: column nowrap;
+                        gap: $gap;
+
+                        div.ContainerHeader {
+                            font-weight: bold;
+                        }
+
+                        div.LinksList {
+                            transition: all ease-in-out 2s;
+                            display: flex;
+                            flex-flow: column nowrap;
+                            font-size: $font-size;
+                            cursor: pointer;
+
+                            a.Link {
+                                flex: 0 1 2em;
+                                text-decoration: none;
+                                color: inherit;
+                                color: lightslategray;
+                                transition: all ease-in-out 300ms;
+
+                                &:hover {
+                                    color: $primary-color;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                div.SubscriptionBox {
+                    flex: 1 1 auto;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    gap: $gap;
+
+                    div.ContainerHeader {
+                        font-weight: bold;
+                    }
+
+                    div.SubscriptionCaption {
+                        line-height: 1.5em;
+                        color: black;
+                    }
+
+                    div.SubscriptionFormWrapper {
+                        padding: 12px 0;
+
+                        form.NewletterSubscriptionForm {
+                            line-height: 1.5em;
+                            display: flex;
+                            flex-flow: row nowrap;
+                            background-color: white;
+                            border-radius: 2em;
+                            border: 1px solid gray;
+
+                            input.NewletterSubscriptionInput,
+                            button.NewletterSubscriptionBtn {
+                                border-radius: 2em;
+                                border: none;
+                            }
+
+                            input.NewletterSubscriptionInput {
+                                flex: 1 1 auto;
+                                padding: 0 1em;
+                                outline: none;
+                            }
+
+                            button.NewletterSubscriptionBtn {
+                                flex: 0 0 100px;
+                                padding: 1em 1em;
+                                background-color: $primary-color;
+                                color: white;
+                                font-weight: bold;
+                                cursor: pointer;
+                                transition: all ease-in-out 300ms;
+
+                                &:hover {
+                                    filter: brightness(110%);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        div.CopyrightBox {
+            background-color: $copyright-background-color;
+            padding: 2em;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            font-size: 12px;
+            gap: 12px;
+
+            div.StatementBox {
+                div.CompanyNameBox {
+                    display: inline;
+                    font-weight: bold;
+                }
+
+                a.DeveloperBox {
+                    display: inline;
+                    text-decoration: none;
+                    color: $primary-color;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

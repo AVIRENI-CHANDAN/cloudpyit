@@ -1,0 +1,95 @@
+$overlay-color: rgba(0, 0, 0, 0.5);
+$white-color: white;
+$green-color: rgb(80, 190, 80);
+$font-large: 48px;
+$font-medium: 24px;
+$font-small: 18px;
+$padding-large: 1em 3em;
+$padding-medium: 0 12px;
+$gap-large: 48px;
+$gap-medium: 8px;
+
+section.WelcomeSection {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $white-color;
+    padding: $padding-medium;
+
+    .DarkOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: $overlay-color;
+        z-index: 1;
+    }
+
+    .SectionWrapper {
+        flex: 0 1 1270px;
+        z-index: 5;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: $gap-large;
+
+        .SectionContentWrapper {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: $gap-medium;
+
+            .LearningToday,
+            .LeadingTomorrow {
+                font-size: $font-large;
+                font-weight: 700;
+                text-transform: capitalize;
+
+                &::after {
+                    content: ',';
+                }
+            }
+
+            .IntroCaption {
+                font-size: $font-medium;
+                font-weight: 300;
+            }
+        }
+
+        .GetStartedBtn {
+            width: fit-content;
+            background: transparent;
+            padding: $padding-large;
+            border-radius: 2em;
+            color: $white-color;
+            font-weight: bold;
+            border: 2px solid $white-color;
+            outline: none;
+            cursor: pointer;
+            transition: background-color 500ms ease-in-out;
+
+            &:hover {
+                background-color: $green-color;
+            }
+        }
+    }
+
+    @media (max-width: 760px) {
+        .SectionContentWrapper {
+
+            .LearningToday,
+            .LeadingTomorrow {
+                font-size: 36px;
+            }
+
+            .IntroCaption {
+                font-size: $font-small;
+            }
+        }
+    }
+}

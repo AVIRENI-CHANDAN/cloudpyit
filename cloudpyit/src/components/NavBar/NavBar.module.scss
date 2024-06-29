@@ -1,0 +1,140 @@
+$primary-color: rgb(80, 190, 80);
+$secondary-color: rgb(250, 250, 250);
+$border-color: rgb(200, 200, 200);
+$hover-border-color: rgb(80, 190, 80);
+$font-color: inherit;
+$padding: 0 12px;
+$button-padding: 0.75em 2em;
+$gap: 12px;
+$menu-gap: 16px;
+$box-shadow-color: black;
+
+@mixin nav-link-styles {
+    flex: 0 1 300px;
+    cursor: pointer;
+    text-decoration: none;
+    color: $font-color;
+    text-transform: capitalize;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 500ms ease-in-out;
+
+    &:hover {
+        color: $primary-color;
+    }
+}
+
+header.NavBar {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    position: relative;
+    padding: $padding;
+    border-bottom: 1px solid lightgray;
+
+    .AppLogo {
+        flex: 0 0 100px;
+        justify-content: center;
+        display: flex;
+
+        img {
+            justify-content: center;
+            height: 60px;
+        }
+    }
+
+    .NavLinkContainer {
+        flex: 0 1 670px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: stretch;
+        justify-content: flex-end;
+        font-weight: 500;
+        gap: $gap;
+
+        .NavLinks,
+        .MenuNavLinks {
+            flex: 1 1 auto;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: stretch;
+            list-style: none;
+
+            a.NavLink {
+                @include nav-link-styles;
+            }
+
+            a.GreenNavLink {
+                @include nav-link-styles;
+                color: $primary-color;
+            }
+        }
+
+        button.GetStartedBtn {
+            flex: 0 1 auto;
+            padding: $button-padding;
+            border-radius: 2em;
+            border: none;
+            outline: none;
+            background-color: $primary-color;
+            color: white;
+            cursor: pointer;
+            align-self: center;
+            font-weight: bolder;
+        }
+
+        .MenuIcon {
+            flex: 0 1 50px;
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            display: none;
+
+            @media (max-width: 760px) {
+                display: block;
+            }
+        }
+    }
+
+    @media (max-width: 760px) {
+        .NavLinkContainer {
+            .NavLinks {
+                display: none;
+            }
+
+            .MenuNavLinks {
+                position: absolute;
+                top: 120px;
+                left: 0;
+                display: flex;
+                flex-flow: column nowrap;
+                z-index: 10;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                padding: 48px;
+                background-color: $secondary-color;
+                gap: $menu-gap;
+                box-shadow: 0 0 24px $box-shadow-color;
+
+                a.NavLink {
+                    flex: 0 1 3em;
+                    max-width: 300px;
+                    width: 100%;
+                    border: 1px solid $border-color;
+                    transition: all 300ms ease-in-out;
+                    border-radius: 4px;
+
+                    &:hover {
+                        border: 1px solid $hover-border-color;
+                    }
+                }
+            }
+        }
+    }
+}

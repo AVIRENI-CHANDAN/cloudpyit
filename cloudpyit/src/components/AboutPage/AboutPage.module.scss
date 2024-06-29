@@ -1,0 +1,120 @@
+div.AboutPage {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+
+    div.PageHeading {
+        align-items: center;
+        flex: 0 0 auto;
+        color: white;
+
+        div.PageTitle {
+            background-color: rgb(90, 197, 121);
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            padding: 1em;
+
+            div.Title {
+                font-size: 2.5rem;
+                padding: 16px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            div.TitleDescription {
+                width: min(100%, 700px);
+                align-self: center;
+                padding: auto;
+            }
+        }
+
+        div.PageRoutePath {
+            background-color: rgb(83, 183, 108);
+            display: flex;
+            flex-flow: row nowrap;
+            font-weight: bold;
+            justify-content: center;
+            padding: 1.5em 1em;
+
+            div.PageRoutePathWrapper {
+                flex: 0 1 1270px;
+                display: flex;
+                flex-flow: row nowrap;
+
+                div.PageRoute {
+                    &:not(:last-child)::after {
+                        content: "/";
+                        padding: 0 12px;
+                        opacity: 0.5;
+                    }
+                }
+            }
+
+        }
+    }
+
+    div.PageBody {
+        flex: 1 1 auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        padding: 12px;
+
+        div.PageBodyBox {
+            flex: 0 1 1270px;
+            padding: 2em 0;
+            display: flex;
+            flex-flow: row wrap-reverse;
+
+            div.AboutContent,
+            div.AboutImage {
+                flex: 1 1 50%;
+                position: relative;
+            }
+
+            div.AboutContent {
+                display: flex;
+                flex-flow: column nowrap;
+                gap: 24px;
+
+                div.Title {
+                    font-size: 2em;
+                    font-weight: bold;
+                }
+
+                div.Description {
+                    font-style: italic;
+                }
+
+                div.AboutList {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    gap: 12px;
+
+                    div.ListItem {
+                        img.AcceptPng {
+                            height: 1em;
+                            padding-right: 1em;
+                        }
+                    }
+                }
+            }
+
+            div.AboutImage {
+                position: relative;
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    height: auto;
+                    width: 100%;
+                    min-width: min(500px, 100vw);
+                    max-width: min(100%, 550px);
+                }
+            }
+        }
+    }
+}

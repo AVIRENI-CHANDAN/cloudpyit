@@ -1,0 +1,51 @@
+$white-color: rgb(255, 255, 255);
+$border-color: rgb(200, 200, 200);
+$hover-color: rgb(80, 190, 80);
+$padding: 2em 12px;
+$gap: 12px;
+
+section.CourseSection {
+    background-color: $white-color;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    div.CourseSectionContainer {
+        flex: 0 1 1270px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        padding: $padding;
+
+        div.CourseListContainer {
+            display: flex;
+            flex-flow: row wrap;
+            height: 100%;
+            width: 100%;
+            gap: $gap;
+            justify-content: center;
+
+            a.Course {
+                flex: 1 1 300px;
+                padding: 24px 36px;
+                border: 1px solid $border-color;
+                text-transform: uppercase;
+                font-weight: 700;
+                cursor: pointer;
+                transition: all ease-in-out 300ms;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                text-decoration: none;
+                color: inherit;
+
+                &:hover {
+                    border: 1px solid $hover-color;
+                    color: $hover-color;
+                }
+            }
+        }
+    }
+}

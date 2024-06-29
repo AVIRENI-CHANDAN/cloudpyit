@@ -1,0 +1,17 @@
+div.App {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+
+div.App div.AppNavBar {
+  flex: 0 0 auto;
+}
+
+div.App div.AppContentBox {
+  flex: 1 1 auto;
+  overflow: scroll;
+  display: flex;
+  flex-flow: column nowrap;
+}
