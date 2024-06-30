@@ -60,5 +60,117 @@ div.ContactPage {
         flex-flow: row nowrap;
         justify-content: center;
         padding: 12px;
+
+        div.PageBox {
+            flex: 0 1 1270px;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 12px;
+
+            div.MapLocationBox {
+                flex: 0 0 auto;
+                border: 1px solid red;
+            }
+
+            div.ContactFormBox {
+                flex: 1 1 auto;
+                display: flex;
+                flex-flow: row wrap-reverse;
+                padding: 24px 0;
+
+                div.ContactDetails {
+                    flex: 1 0 300px;
+                    display: flex;
+                    flex-flow: row wrap;
+                    gap: 24px;
+
+                    div.DetailBox {
+                        flex: 1 1 300px;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        gap: 12px;
+
+                        div.DetailIcon {
+
+                            img {
+                                height: 48px;
+                            }
+                        }
+
+                        div.AddressBox,
+                        div.MobileBox,
+                        div.EmailBox {
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+
+                div.FormBox {
+                    flex: 10 10 600px;
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    form.ContactForm {
+                        height: 100%;
+                        width: 100%;
+                        display: flex;
+                        flex-flow: column nowrap;
+                        gap: 12px;
+
+                        div.FormGroup {
+                            gap: 8px 12px;
+                            display: flex;
+                            flex-flow: row wrap;
+                            justify-content: center;
+
+                            div.FormField {
+                                flex: 1 1 400px;
+
+                                input,
+                                textarea,
+                                select {
+                                    padding: 8px;
+                                    border-radius: 4px;
+                                    outline: none;
+                                    border: 1px solid lightgray;
+                                    width: 100%;
+                                    position: relative;
+
+                                    &::placeholder {
+                                        flex: 1 1 auto;
+                                        color: black;
+                                        opacity: 1;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+
+
+                            button.FormSubmit {
+                                justify-self: center;
+                                align-self: center;
+                                flex: 0 1 200px;
+                                padding: 8px;
+                                border-radius: 16px;
+                                outline: none;
+                                border: none;
+                                background-color: rgb(90, 197, 121);
+                                color: white;
+                                font-weight: bold;
+                                cursor: pointer;
+                                transition: all ease-in-out 500ms;
+
+                                &:hover {
+                                    box-shadow: 0 0 8px gray;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
