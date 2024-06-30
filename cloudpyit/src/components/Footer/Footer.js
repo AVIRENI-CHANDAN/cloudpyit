@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
+import withNavigate from '../withNavigate';
 import styles from './Footer.module.scss';
 
 class Footer extends React.Component {
@@ -30,14 +31,14 @@ class Footer extends React.Component {
       })
       .then(data => {
         console.log("The data", data);
+        this.setState({ email: "" });
+        this.props.navigate("/");
       })
-      .then(this.setState({ email: "" }))
       .catch(error => console.error("ERROR in fetching" + error.message));
   }
 
   handleContactFormChange(event) {
     const { name, value } = event.target;
-    console.log("The update", name, value);
     this.setState({ [name]: value });
   }
 
@@ -122,4 +123,4 @@ Footer.propTypes = {};
 
 Footer.defaultProps = {};
 
-export default Footer;
+export default withNavigate(Footer);
