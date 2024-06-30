@@ -60,5 +60,99 @@ div.VacancyPage {
         flex-flow: row nowrap;
         justify-content: center;
         padding: 12px;
+
+        div.VacancyWrapper {
+            flex: 0 1 1270px;
+
+            div.List {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                padding: 48px 12px;
+
+                div.Item {
+                    flex: 0 1 380px;
+                    box-shadow: 0 0 12px -6px slategray;
+                    padding: 24px;
+                    border-radius: 12px;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    gap: 8px;
+
+                    div.Box {
+                        div.TitleWrapper {
+                            display: flex;
+                            flex-flow: row nowrap;
+
+                            div.Title {
+                                padding: 8px 12px;
+                                border-radius: 24px;
+                                background-color: rgb(90, 197, 121);
+                                color: white;
+                                font-weight: bold;
+                            }
+                        }
+
+                        div.CompanyDetailsWrapper {
+                            display: flex;
+                            flex-flow: row nowrap;
+
+                            div.CompanyWrapper {
+                                flex: 1 1 auto;
+                                display: flex;
+                                flex-flow: row nowrap;
+                                font-weight: bold;
+                            }
+
+                            div.LocationWrapper {
+                                flex: 0 0 auto;
+                                font-size: 12px;
+                                font-style: italic;
+                                display: flex;
+                                flex-flow: row nowrap;
+                                justify-content: center;
+                                align-items: center;
+
+                                div.Location {
+
+                                    &::before {
+                                        content: "-";
+                                        padding: 0 4px;
+                                    }
+                                }
+                            }
+                        }
+
+                        div.DescriptionWrapper {
+                            padding: 8px 0;
+
+                            div.Description {
+                                color: rgba(0, 0, 0, 0.75);
+                            }
+                        }
+
+                        div.RequirementsWrapper {
+                            display: flex;
+                            flex-flow: row nowrap;
+
+                            div.RequirementList {
+                                display: flex;
+                                flex-flow: column nowrap;
+                                gap: 8px;
+
+                                div.ListItem {
+                                    font-size: 14px;
+
+                                    &::before {
+                                        content: "->";
+                                        padding: 0 6px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -23,7 +23,7 @@ class ProjectPage extends React.Component {
           </div>
         </div>
         <div className={styles.PageBody}>
-          PageBody
+          <h1>Sooner...</h1>
         </div>
       </div>
     );

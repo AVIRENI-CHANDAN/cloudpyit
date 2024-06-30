@@ -111,3 +111,42 @@ available_courses = [
     "AZURE DEVOPS",
     "AWS ADMIN",
 ]
+
+vacancies = [
+    {
+        "id": 1,
+        "title": "Software Engineer",
+        "company": "Tech Solutions",
+        "location": "New York, NY",
+        "description": "Develop and maintain web applications.",
+        "requirements": [
+            "Bachelor's degree in Computer Science",
+            "3+ years of experience in software development",
+            "Proficiency in Python and JavaScript",
+        ],
+    },
+    {
+        "id": 2,
+        "title": "Data Analyst",
+        "company": "Data Insights",
+        "location": "San Francisco, CA",
+        "description": "Analyze and interpret complex data sets.",
+        "requirements": [
+            "Bachelor's degree in Statistics or related field",
+            "2+ years of experience in data analysis",
+            "Experience with SQL and data visualization tools",
+        ],
+    },
+    {
+        "id": 3,
+        "title": "Product Manager",
+        "company": "Innovatech",
+        "location": "Austin, TX",
+        "description": "Lead the product development lifecycle.",
+        "requirements": [
+            "Bachelor's degree in Business or related field",
+            "5+ years of experience in product management",
+            "Strong understanding of Agile methodologies",
+        ],
+    },
+]

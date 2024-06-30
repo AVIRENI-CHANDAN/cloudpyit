@@ -57,6 +57,11 @@ def get_all_popular_courses():
     return jsonify(tempdb.popular_courses)
 
 
+@app.get("/vacancy")
+def get_all_vacancy():
+    return jsonify({"vacancies": tempdb.vacancies})
+
+
 if __name__ == "__main__":
     if DEBUG:
         from flask_cors import CORS
