@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import close_logo from '../../images/close.png';
 import logo from '../../images/logo.png';
+import menu_logo from '../../images/more_128p.png';
 import styles from './NavBar.module.scss';
 
 class NavBar extends React.Component {
@@ -17,6 +19,10 @@ class NavBar extends React.Component {
     this.setState((prevState) => ({ showMenu: !prevState.showMenu }));
   }
 
+  handleNavLinkClick() {
+    this.setState({ showMenu: false });
+  }
+
   render() {
     return (
       <header className={styles.NavBar}>
@@ -25,17 +31,22 @@ class NavBar extends React.Component {
         </div>
         <div className={styles.NavLinkContainer}>
           <div className={!this.state.showMenu ? styles.NavLinks : styles.MenuNavLinks}>
-            <NavLink to="/" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink}>home</NavLink>
-            <NavLink to="/about" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink}>about</NavLink>
-            <NavLink to="/courses" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink}>courses</NavLink>
-            <NavLink to="/projects" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink}>projects</NavLink>
-            <NavLink to="/vacancies" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink}>vacancies</NavLink>
-            <NavLink to="/contact" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink}>contact</NavLink>
+            <div className={styles.MenuCloseBtn} onClick={this.toggleMenu}>
+              <img src={close_logo} alt='Close' />
+            </div>
+            <NavLink to="/" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>home</NavLink>
+            <NavLink to="/about" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>about</NavLink>
+            <NavLink to="/courses" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>courses</NavLink>
+            <NavLink to="/projects" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>projects</NavLink>
+            <NavLink to="/vacancies" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>vacancies</NavLink>
+            <NavLink to="/contact" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>contact</NavLink>
           </div>
           <button className={styles.GetStartedBtn}>Get Started</button>
-          <div className={styles.MenuIcon} onClick={this.toggleMenu}>
-            {this.state.showMenu ? String.fromCharCode(10005) : String.fromCharCode(9776)}
-          </div>
+          {(!this.state.showMenu) ? (
+            <div className={styles.MenuIcon} onClick={this.toggleMenu}>
+              <img src={menu_logo} alt="Menu" />
+            </div>
+          ) : ''}
         </div>
       </header>
     );
