@@ -67,6 +67,10 @@ class ContactPage extends React.Component {
       })
       .then(data => {
         console.log("The data", data);
+        this.setState(prevState => ({
+          ...prevState,
+          contact_form: { full_name: "", email: "", course: "", message: "" }
+        }));
       })
       .catch(error => console.error("ERROR in fetching" + error.message));
   }

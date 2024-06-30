@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
-import withNavigate from '../withNavigate';
 import styles from './Footer.module.scss';
 
 class Footer extends React.Component {
@@ -32,7 +31,6 @@ class Footer extends React.Component {
       .then(data => {
         console.log("The data", data);
         this.setState({ email: "" });
-        this.props.navigate("/");
       })
       .catch(error => console.error("ERROR in fetching" + error.message));
   }
@@ -123,4 +121,4 @@ Footer.propTypes = {};
 
 Footer.defaultProps = {};
 
-export default withNavigate(Footer);
+export default Footer;
