@@ -31,9 +31,11 @@ class NavBar extends React.Component {
         </div>
         <div className={styles.NavLinkContainer}>
           <div className={!this.state.showMenu ? styles.NavLinks : styles.MenuNavLinks}>
-            <div className={styles.MenuCloseBtn} onClick={this.toggleMenu}>
-              <img src={close_logo} alt='Close' />
-            </div>
+            {this.state.showMenu && (
+              <div className={styles.MenuCloseBtn} onClick={this.toggleMenu}>
+                <img src={close_logo} alt='Close' />
+              </div>
+            )}
             <NavLink to="/" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>home</NavLink>
             <NavLink to="/about" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>about</NavLink>
             <NavLink to="/courses" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>courses</NavLink>
