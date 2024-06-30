@@ -1,6 +1,7 @@
 import os
 
-from flask import Flask, jsonify, render_template, send_from_directory
+import requests
+from flask import Flask, jsonify, render_template, request, send_from_directory
 
 import tempdb
 
@@ -60,6 +61,37 @@ def get_all_popular_courses():
 @app.get("/vacancy")
 def get_all_vacancy():
     return jsonify({"vacancies": tempdb.vacancies})
+
+
+@app.post("/contact-form")
+def submit_contact_form():
+    data = request.get_json()
+    send_simple_message(data)
+    return jsonify({"msg": "Success"})
+
+
+@app.post("/subscription")
+def subscribe_new_letter():
+    data = request.get_json()
+    send_simple_message(data)
+    return jsonify({"msg": "Success"})
+
+
+def send_simple_message(user_data):
+    DOMAIN = "sandboxc388a3948d9e469a8e90a27adafed28f.mailgun.org"
+    API_KEY = os.getenv("SINCH_MAIL_API_KEY")
+    return requests.post(
+        f"https://api.mailgun.net/v3/{DOMAIN}/messages",
+        auth=("api", API_KEY),
+        data={
+            "from": f"Excited User <mailgun@{DOMAIN}>",
+            "to": ["avireni.chandanchandu43657@gmail.com"],
+            "subject": "Contact me request",
+            "text": "\n".join(
+                [f"{key:20s} {value:20s}" for key, value in user_data.items()]
+            ),
+        },
+    )
 
 
 if __name__ == "__main__":
