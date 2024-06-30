@@ -4,6 +4,43 @@ import logo from '../../images/logo.png';
 import styles from './Footer.module.scss';
 
 class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: ""
+    };
+    this.handleContactFormChange = this.handleContactFormChange.bind(this);
+    this.subscriptionSubmit = this.subscriptionSubmit.bind(this);
+  }
+
+  subscriptionSubmit(event) {
+    event.preventDefault();
+    fetch("/subscription", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ "email": this.state.email })
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok');
+      })
+      .then(data => {
+        console.log("The data", data);
+      })
+      .then(this.setState({ email: "" }))
+      .catch(error => console.error("ERROR in fetching" + error.message));
+  }
+
+  handleContactFormChange(event) {
+    const { name, value } = event.target;
+    console.log("The update", name, value);
+    this.setState({ [name]: value });
+  }
+
   render() {
     return (
       <footer className={styles.Footer}>
@@ -59,8 +96,8 @@ class Footer extends React.Component {
                 <div className={styles.ContainerHeader}>Our Newsletter</div>
                 <div className={styles.SubscriptionCaption}>Subscribe to our newsletter and receive the latest news about our products and services!</div>
                 <div className={styles.SubscriptionFormWrapper}>
-                  <form className={styles.NewletterSubscriptionForm}>
-                    <input type="email" className={styles.NewletterSubscriptionInput} placeholder="Enter your email address" />
+                  <form className={styles.NewletterSubscriptionForm} onSubmit={this.subscriptionSubmit}>
+                    <input type="email" name="email" value={this.state.email} className={styles.NewletterSubscriptionInput} onChange={this.handleContactFormChange} placeholder="Enter your email address" />
                     <button className={styles.NewletterSubscriptionBtn}>Subscribe</button>
                   </form>
                 </div>

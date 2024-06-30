@@ -66,6 +66,7 @@ def get_all_vacancy():
 @app.post("/contact-form")
 def submit_contact_form():
     data = request.get_json()
+    data["Subject"] = "Contact me request"
     send_simple_message(data)
     return jsonify({"msg": "Success"})
 
@@ -73,6 +74,8 @@ def submit_contact_form():
 @app.post("/subscription")
 def subscribe_new_letter():
     data = request.get_json()
+    data["Subject"] = "Subscription request"
+    print("Subscription data", data)
     send_simple_message(data)
     return jsonify({"msg": "Success"})
 
@@ -86,7 +89,7 @@ def send_simple_message(user_data):
         data={
             "from": f"Excited User <mailgun@{DOMAIN}>",
             "to": ["avireni.chandanchandu43657@gmail.com"],
-            "subject": "Contact me request",
+            "subject": user_data["Subject"],
             "text": "\n".join(
                 [f"{key:20s} {value:20s}" for key, value in user_data.items()]
             ),
