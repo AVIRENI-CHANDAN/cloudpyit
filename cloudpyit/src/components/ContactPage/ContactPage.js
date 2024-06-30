@@ -3,6 +3,7 @@ import email_icon from '../../images/email_128p.png';
 import gps_icon from '../../images/gps_128p.png';
 import phone_icon from '../../images/phone-call_128p.png';
 import styles from './ContactPage.module.scss';
+import MapComponent from './MapComponent';
 
 class ContactPage extends React.Component {
   constructor(props) {
@@ -92,7 +93,9 @@ class ContactPage extends React.Component {
         </div>
         <div className={styles.PageBody}>
           <div className={styles.PageBox}>
-            <div className={styles.MapLocationBox}>MapLocationBox</div>
+            <div className={styles.MapLocationBox}>
+              <MapComponent />
+            </div>
             <div className={styles.ContactFormBox}>
               <div className={styles.ContactDetails}>
                 <div className={styles.DetailBox}>
