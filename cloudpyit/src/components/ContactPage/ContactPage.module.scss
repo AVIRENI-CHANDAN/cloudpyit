@@ -69,7 +69,6 @@ div.ContactPage {
 
             div.MapLocationBox {
                 flex: 0 0 auto;
-                border: 1px solid red;
             }
 
             div.ContactFormBox {
@@ -77,6 +76,7 @@ div.ContactPage {
                 display: flex;
                 flex-flow: row wrap-reverse;
                 padding: 24px 0;
+                gap: 48px 12px;
 
                 div.ContactDetails {
                     flex: 1 0 300px;
