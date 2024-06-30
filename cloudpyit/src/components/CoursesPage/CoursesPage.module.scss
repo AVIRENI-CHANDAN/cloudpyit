@@ -60,5 +60,136 @@ div.CoursesPage {
         flex-flow: row nowrap;
         justify-content: center;
         padding: 12px;
+
+        div.PageBox {
+            flex: 0 1 1270px;
+
+            div.CoursesList {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
+                gap: 12px 12px;
+
+                div.CourseListItem {
+                    position: relative;
+                    border: 1px solid lightgray;
+                    flex: 0 1 400px;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    gap: 8px;
+                    border-radius: 4px;
+
+                    div.CourseImage {
+                        position: relative;
+                        height: 250px;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: center;
+                        align-items: flex-start;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    div.AboutCourse {
+                        padding: 1em;
+                        display: flex;
+                        flex-flow: column nowrap;
+                        gap: 12px;
+
+                        div.CourseTitle {
+                            font-weight: bold;
+                            display: block;
+
+                            div.TitleWrapper {
+                                padding: 12px;
+                                display: inline-block;
+                                background-color: rgb(90, 197, 121);
+                                color: white;
+                                border-radius: 8px;
+                                text-transform: uppercase;
+                                font-size: 14px;
+                                font-weight: 500;
+                            }
+                        }
+
+                        div.CourseDescription {
+
+                            div.DescriptionWrapper {
+                                display: -webkit-box;
+                                -webkit-line-clamp: 3;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                height: calc(1.2em * 3);
+                                transition: height ease-in-out 1s;
+                            }
+                        }
+                    }
+
+                    div.TrainerBox {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        gap: 4px;
+                        padding: 8px;
+                        border-top: 1px solid lightgray;
+
+                        div.TrainerImage {
+                            flex: 0 0 auto;
+                            width: 60px;
+                            height: 60px;
+                            overflow: hidden;
+                            display: flex;
+                            flex-flow: row nowrap;
+                            justify-content: center;
+                            align-items: flex-start;
+
+                            img {
+                                height: 60px;
+                                width: auto;
+                            }
+                        }
+
+                        div.TrainerName {
+                            flex: 1 1 auto;
+                            display: flex;
+                            flex-flow: row nowrap;
+                            align-items: center;
+                        }
+
+                        div.CourseStats {
+                            flex: 0 0 auto;
+                            display: flex;
+                            flex-flow: column nowrap;
+                            gap: 4px;
+
+                            div.Stats {
+                                flex: 1 1 auto;
+                                display: flex;
+                                flex-flow: row nowrap;
+                                align-items: center;
+                                gap: 4px;
+
+                                div.Logo {
+                                    height: 20px;
+
+                                    img {
+                                        height: 20px;
+                                        width: auto;
+                                    }
+                                }
+
+                                div.Count {
+                                    color: slategrey;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
