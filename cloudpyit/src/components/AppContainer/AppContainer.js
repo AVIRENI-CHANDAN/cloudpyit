@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AboutPage from '../AboutPage/AboutPage';
+import AuthPage from '../AuthPage/AuthPage';
 import ContactPage from '../ContactPage/ContactPage';
 import CoursesPage from '../CoursesPage/CoursesPage';
 import Footer from '../Footer/Footer';
@@ -22,6 +23,7 @@ class AppContainer extends React.Component {
             <Route path="/projects" element={<ProjectPage />} />
             <Route path="/vacancies" element={<VacancyPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/auth" element={<AuthPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
