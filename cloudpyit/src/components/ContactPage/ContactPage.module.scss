@@ -91,6 +91,10 @@ div.ContactPage {
                         gap: 12px;
 
                         div.DetailIcon {
+                            display: flex;
+                            flex-flow: row nowrap;
+                            justify-content: center;
+                            align-items: center;
 
                             img {
                                 height: 48px;
@@ -102,6 +106,8 @@ div.ContactPage {
                         div.EmailBox {
                             display: flex;
                             align-items: center;
+                            justify-content: center;
+                            align-content: center;
                         }
                     }
                 }
