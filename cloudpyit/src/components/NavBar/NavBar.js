@@ -13,6 +13,7 @@ class NavBar extends React.Component {
     }
     // Bind the method to the component instance
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.handleNavLinkClick = this.handleNavLinkClick.bind(this);
   }
 
   toggleMenu() {
@@ -43,7 +44,7 @@ class NavBar extends React.Component {
             <NavLink to="/vacancies" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>vacancies</NavLink>
             <NavLink to="/contact" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>contact</NavLink>
           </div>
-          <Link className={styles.GetStartedBtn}>Get Started</Link>
+          <Link to="/auth" className={styles.GetStartedBtn}>Get Started</Link>
           {(!this.state.showMenu) ? (
             <div className={styles.MenuIcon} onClick={this.toggleMenu}>
               <img src={menu_logo} alt="Menu" />
