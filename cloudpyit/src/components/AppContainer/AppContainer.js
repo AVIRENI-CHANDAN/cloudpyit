@@ -5,6 +5,7 @@ import ContactPage from '../ContactPage/ContactPage';
 import CoursesPage from '../CoursesPage/CoursesPage';
 import Footer from '../Footer/Footer';
 import LandingPage from '../LandingPage/LandingPage';
+import NotFound from '../NotFound/NotFound';
 import ProjectPage from '../ProjectPage/ProjectPage';
 import VacancyPage from '../VacancyPage/VacancyPage';
 import styles from './AppContainer.module.scss';
@@ -21,6 +22,7 @@ class AppContainer extends React.Component {
             <Route path="/projects" element={<ProjectPage />} />
             <Route path="/vacancies" element={<VacancyPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <Footer />
