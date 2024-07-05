@@ -1,5 +1,5 @@
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 
 function createPinContent() {
     const pinContainer = document.createElement('div');
@@ -25,7 +25,7 @@ function MapComponent() {
         height: '400px',
         width: '100%',
     };
-    const center = { lat: 17.452042, lng: 78.390146 };
+    const center = useMemo(() => ({ lat: 17.452042, lng: 78.390146 }), []);
     const options = {
         zoomControl: true,
         mapId: 'roadmap',
@@ -59,7 +59,7 @@ function MapComponent() {
                 });
             });
         }
-    }, []);
+    }, [center]);
 
     if (loadError) return <div>Error loading maps</div>;
     if (!isLoaded) return <div>Loading Maps</div>;
