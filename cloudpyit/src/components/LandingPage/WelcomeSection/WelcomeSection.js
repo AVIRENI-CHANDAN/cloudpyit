@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import hero_bg from '../../../images/hero-bg.jpg';
 import styles from './WelcomeSection.module.scss';
 
@@ -13,7 +14,7 @@ class WelcomeSection extends React.Component {
             <div className={styles.LeadingTomorrow}>Leading tomorrow</div>
             <div className={styles.IntroCaption}>We are team of talented designers making websites with Bootstrap</div>
           </div>
-          <button className={styles.GetStartedBtn}>Get Started</button>
+          <Link to="/auth" className={styles.GetStartedBtn}>Get Started</Link>
         </div>
       </section>
     );

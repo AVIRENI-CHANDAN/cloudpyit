@@ -74,7 +74,8 @@ header.NavBar {
             }
         }
 
-        button.GetStartedBtn {
+        a.GetStartedBtn {
+            text-decoration: none;
             flex: 0 1 auto;
             padding: $button-padding;
             border-radius: 2em;
@@ -84,7 +85,7 @@ header.NavBar {
             color: white;
             cursor: pointer;
             align-self: center;
-            font-weight: bolder;
+            font-size: 1rem;
         }
 
         .MenuIcon {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import close_logo from '../../images/close.png';
 import logo from '../../images/logo.png';
 import menu_logo from '../../images/more_128p.png';
@@ -43,7 +43,7 @@ class NavBar extends React.Component {
             <NavLink to="/vacancies" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>vacancies</NavLink>
             <NavLink to="/contact" className={({ isActive }) => isActive ? styles.GreenNavLink : styles.NavLink} onClick={this.handleNavLinkClick}>contact</NavLink>
           </div>
-          <button className={styles.GetStartedBtn}>Get Started</button>
+          <Link className={styles.GetStartedBtn}>Get Started</Link>
           {(!this.state.showMenu) ? (
             <div className={styles.MenuIcon} onClick={this.toggleMenu}>
               <img src={menu_logo} alt="Menu" />
