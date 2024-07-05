@@ -31,7 +31,9 @@ function MapComponent() {
         mapId: 'roadmap',
         mapTypeId: 'roadmap',
         streetViewControl: false,
-        fullscreenControlOptions: false, fullscreenControl: false, mapTypeControl: false
+        fullscreenControlOptions: false,
+        fullscreenControl: false,
+        mapTypeControl: false
     };
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: 'AIzaSyB8pgDs2AHwCuLf9lXaozsg79yL2FNuG4U',
