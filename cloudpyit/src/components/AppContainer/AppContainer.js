@@ -23,7 +23,7 @@ class AppContainer extends React.Component {
             <Route path="/projects" element={<ProjectPage />} />
             <Route path="/vacancies" element={<VacancyPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/auth/*" element={<AuthPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
