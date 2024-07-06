@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import AuthLogin from './AuthLogin/AuthLogin';
 import styles from './AuthPage.module.scss';
 import AuthRegister from './AuthRegister/AuthRegister';
@@ -19,6 +19,7 @@ class AuthPage extends React.Component {
             <Routes>
               <Route path="/login" element={<AuthLogin />} />
               <Route path="/register" element={<AuthRegister />} />
+              <Route path="*" element={<Navigate to="/auth/login" />} />
             </Routes>
           </div>
         </div>
