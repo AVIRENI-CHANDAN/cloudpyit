@@ -80,6 +80,18 @@ def subscribe_new_letter():
     return jsonify({"msg": "Success"})
 
 
+@app.post("/api/login")
+def user_login():
+    data = request.get_json()
+    username = data["username"]
+    password = data["password"]
+
+    # Simulating user authentication
+    if username == "admin" and password == "password":
+        return jsonify({"status": "success", "message": "Logged in successfully"}), 200
+    return jsonify({"status": "error", "message": "Invalid credentials"}), 404
+
+
 def send_simple_message(user_data):
     DOMAIN = "sandboxc388a3948d9e469a8e90a27adafed28f.mailgun.org"
     API_KEY = os.getenv("SINCH_MAIL_API_KEY")
