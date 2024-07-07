@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import styles from './AuthLogin.module.scss';
 
 class AuthLogin extends React.Component {
@@ -7,6 +8,9 @@ class AuthLogin extends React.Component {
     this.login_form = {
       username: '',
       password: ''
+    };
+    this.state = {
+      next: null
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -26,11 +30,26 @@ class AuthLogin extends React.Component {
       },
       body: JSON.stringify(this.login_form)
     }).then(response => {
-      console.log("The login auth response", response);
-    })
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Network response was not ok');
+    }).then(resp => {
+      console.log("The response from the endpoint", resp);
+      this.setState({ next: resp.to });
+    }).catch(error => {
+      console.error("ERROR in fetching" + error.message);
+      alert("Invalid credentials!");  // Show an alert to the user for invalid credentials.
+    });
   }
 
   render() {
+    if (this.state.next) {
+      console.log(this.state.next);
+      return (
+        <Navigate to={this.state.next} />
+      )
+    }
     return (
       <div className={styles.AuthLogin}>
         <div className={styles.LoginWrapper}>
