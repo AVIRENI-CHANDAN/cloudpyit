@@ -1,4 +1,5 @@
 import os
+from http import HTTPStatus
 
 import requests
 from flask import Flask, jsonify, render_template, request, send_from_directory
@@ -21,46 +22,46 @@ def serve(path):
     print("Requesting path", path)
     if path != "":
         if path.startswith("images") and os.path.exists(app.root_path + "/" + path):
-            return send_from_directory(app.root_path, path)
+            return send_from_directory(app.root_path, path), HTTPStatus.OK
         if os.path.exists(app.static_folder + "/" + path):
-            return send_from_directory(app.static_folder, path)
+            return send_from_directory(app.static_folder, path), HTTPStatus.OK
     else:
-        return send_from_directory(app.static_folder, "index.html")
+        return send_from_directory(app.static_folder, "index.html"), HTTPStatus.OK
 
 
 @app.get("/students/count")
 def get_students_count():
-    return jsonify({"count": 100})
+    return jsonify({"count": 100}), HTTPStatus.OK
 
 
 @app.get("/courses/count")
 def get_courses_count():
-    return jsonify({"count": 100})
+    return jsonify({"count": 100}), HTTPStatus.OK
 
 
 @app.get("/trainers/count")
 def get_trainers_count():
-    return jsonify({"count": 100})
+    return jsonify({"count": 100}), HTTPStatus.OK
 
 
 @app.get("/events/count")
 def get_events_count():
-    return jsonify({"count": 100})
+    return jsonify({"count": 100}), HTTPStatus.OK
 
 
 @app.get("/courses")
 def get_all_courses():
-    return jsonify({"courses": tempdb.available_courses})
+    return jsonify({"courses": tempdb.available_courses}), HTTPStatus.OK
 
 
 @app.get("/courses/popular")
 def get_all_popular_courses():
-    return jsonify(tempdb.popular_courses)
+    return jsonify(tempdb.popular_courses), HTTPStatus.OK
 
 
 @app.get("/vacancy")
 def get_all_vacancy():
-    return jsonify({"vacancies": tempdb.vacancies})
+    return jsonify({"vacancies": tempdb.vacancies}), HTTPStatus.OK
 
 
 @app.post("/contact-form")
@@ -68,7 +69,7 @@ def submit_contact_form():
     data = request.get_json()
     data["Subject"] = "Contact me request"
     send_simple_message(data)
-    return jsonify({"msg": "Success"})
+    return jsonify({"msg": "Success"}), HTTPStatus.ACCEPTED
 
 
 @app.post("/subscription")
@@ -77,7 +78,7 @@ def subscribe_new_letter():
     data["Subject"] = "Subscription request"
     print("Subscription data", data)
     send_simple_message(data)
-    return jsonify({"msg": "Success"})
+    return jsonify({"msg": "Success"}), HTTPStatus.ACCEPTED
 
 
 @app.post("/api/login")
@@ -88,8 +89,29 @@ def user_login():
 
     # Simulating user authentication
     if username == "admin" and password == "password":
-        return jsonify({"status": "success", "message": "Logged in successfully"}), 200
-    return jsonify({"status": "error", "message": "Invalid credentials"}), 404
+        return (
+            jsonify(
+                {
+                    "status": "success",
+                    "message": "Logged in successfully",
+                    "to": "/client/home",
+                }
+            ),
+            HTTPStatus.OK,
+        )
+    return (
+        jsonify({"status": "error", "message": "Invalid credentials"}),
+        HTTPStatus.UNAUTHORIZED,
+    )
+
+
+@app.post("/api/register")
+def user_register():
+    data = request.get_json()
+    return (
+        jsonify({"status": "success", "message": "User created", "to": "/auth/login"}),
+        HTTPStatus.ACCEPTED,
+    )
 
 
 def send_simple_message(user_data):
